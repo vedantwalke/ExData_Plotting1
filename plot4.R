@@ -5,6 +5,9 @@ Complete_dataset$Date <- as.Date( ( Complete_dataset$Date) ,"%d/%m/%Y"  )
 dataset <- subset( Complete_dataset , Date >= as.Date("2007-02-01") ) 
 dataset <- subset( dataset , Date <= as.Date("2007-02-02") ) 
 
+png(filename = "plot4.png",
+    width = 480, height = 480, units = "px")
+
 par(mfrow = c(2,2))
 
 #Plotting graphs
@@ -32,4 +35,6 @@ plot( as.numeric(dataset$Global_reactive_power) , type = "l" , axes = FALSE , yl
 axis(1, c( 1,1440 , 2880  ), c("Thur" , "Fri" , "Sat"  ))
 axis(2)
 box()
+
+dev.off()
 
